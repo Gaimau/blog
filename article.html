@@ -60,7 +60,9 @@ const articleDiv = document.getElementById('article');
 const article = articles.find(a => a.title === title);
 
 if (article) {
-  fetch(article.mdFile)
+            // Prepend 'blog/' for GitHub Pages compatibility
+            const mdPath = 'blog/' + article.mdFile.replace(/^blog\//, '');
+            fetch(mdPath)
     .then(response => response.text())
     .then(md => {
       // Remove YAML front matter
