@@ -14,126 +14,49 @@
 <body>
     <div id="article"></div>
     <script>
-        // Same articles array as in tags.html
         const articles = [
             { 
-                title: "Alex", 
-                tags: ["Japan", "Sprout", "Travel"], 
-                subtitle: "Meals are stories and have a purpose for their creation. The beauty is that, with dishes, you write a different story each time. Meals are a combination of our most valued resources in one place—our time, money, and energy into a single event. It's a shame we treat them as an after thought.",
-                url: "article.html?title=alex",
-                mdFile: "articles/Come to the Table (Part 1).md"
-            },
-            { 
-                title: "Another Article", 
-                tags: ["Japan"], 
-                subtitle: "A different perspective.",
-                url: "article.html?title=Another%20Article"
-            },
-            { 
-               title: "The price of the first photo (draft 4)", 
-               tags: ["Japan", "Sprout"], 
-               subtitle: "A journey through vineyards.",
-               url: "article.html?title=The%20price%20of%20the%20first%20photo%20(draft%204)",
-               mdFile: "articles/The price of the first photo (draft 4).md"
-            },
-            {
-                title: "Because or by cause",
-                tags: ["God", "Truth", "Love"],
-                subtitle: "Exploring the nuances of causality.",
-                url: "article.html?title=Because%20or%20by%20cause",
-                mdFile: "articles/Because or by cause.md"
-            },
-            {
-                title: "Prayer and Fasting",
-                tags: ["God", "Sprout", "Travel"],
-                subtitle: "The day my viewpoint changed forever.",
-                url: "article.html?title=Prayer%20and%20Fasting",
-                mdFile: "articles/Prayer and Fasting.md"
+                title: "Example Article", 
+                tags: ["Example", "Test"], 
+                subtitle: "This is a test article.",
+                url: "article.html?title=Example%20Article",
+                mdFile: "articles/example-article.md" // Ensure this path is correct
             }
-            // Add more articles as needed
         ];
 
-        // Get article title from URL
         const params = new URLSearchParams(window.location.search);
         const title = params.get('title');
         const articleDiv = document.getElementById('article');
         const article = articles.find(a => a.title === title);
 
-       if (article) {
-        document.title = article.title;
-        fetch(article.mdFile)
-            .then(response => response.text())
-           .then(md => {
-    // Extract YAML front matter
-    let yamlTags = article.tags;
-    const yamlMatch = md.match(/^---\n([\s\S]*?)\n---/);
-    if (yamlMatch) {
-        const yamlContent = yamlMatch[1];
-        const yamlData = jsyaml.load(yamlContent);
-        if (yamlData && yamlData.tags) {
-            yamlTags = yamlData.tags;
+        if (article) {
+            document.title = article.title;
+            fetch(article.mdFile)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(md => {
+                    // Convert markdown to HTML
+                    const html = marked(md);
+                    // Insert into page
+                    articleDiv.innerHTML = `
+                        <div class="article-content">
+                            <h2>${article.title}</h2>
+                            <p><em>${article.subtitle}</em></p>
+                            <div class="full-content">${html}</div>
+                        </div>
+                    `;
+                })
+                .catch((error) => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    articleDiv.innerHTML = "<p>Could not load article content.</p>";
+                });
+        } else {
+            articleDiv.innerHTML = "<p>Article not found.</p>";
         }
-        // Remove YAML from markdown
-        md = md.replace(/^---\n[\s\S]*?\n---/, '').trim();
-    }
-
-    // Convert markdown to HTML
-    let html = marked.parse(md);
-
-    // Process [[internal links]]
-    html = html.replace(/\[\[([^\]]+)\]\]/g, (match, p1) => {
-        const urlTitle = encodeURIComponent(p1.trim());
-        return `<a href="article.html?title=${urlTitle}">${p1.trim()}</a>`;
-    });
-
-    // After marked.parse(md)
-let footnotes = [];
-let footnoteIndex = 1;
-
-// Replace ^[footnote text] with numbered superscript links
-html = html.replace(/\^\[([^\]]+)\]/g, (match, p1) => {
-    const num = footnoteIndex++;
-    footnotes.push({ num, text: p1 });
-    return `<sup class="footnote"><a href="#footnote-${num}" id="ref-${num}">[${num}]</a></sup>`;
-});
-
-// ...existing internal links replacement...
-
-// At the end, add the footnote section if any footnotes exist
-let footnoteSection = '';
-if (footnotes.length) {
-    footnoteSection = `
-        <hr>
-        <section class="footnotes">
-            <h3>Footnotes</h3>
-            <ol>
-                ${footnotes.map(f => 
-                    `<li id="footnote-${f.num}">${f.text} <a href="#ref-${f.num}">&#8617;</a></li>`
-                ).join('')}
-            </ol>
-        </section>
-    `;
-}
-
-// Insert into page
-articleDiv.innerHTML = `
-    <div class="article-content">
-        <h2>${article.title}</h2>
-        <p><em>${article.subtitle}</em></p>
-        <div class="tags">
-            ${yamlTags.map(tag => `<a class="tag" href="tags.html?tag=${encodeURIComponent(tag)}">${tag}</a>`).join('')}
-        </div>
-        <div class="full-content">${html}${footnoteSection}</div>
-    </div>
-`;
-})
-           .catch((error) => {
-    console.log(error); // This will log the error to the browser console
-    articleDiv.innerHTML = "<p>Could not load article content.</p>";
-});
-    } else {
-        articleDiv.innerHTML = "<p>Article not found.</p>";
-    }
     </script>
 </body>
 </html>
