@@ -1,51 +1,64 @@
-“Wealth isn’t always measured in dollar signs. We each have time, talent, and creativity, all of which can be powerful forces for positive change. Share your blessings in whatever form they come and to whatever level you have been blessed.
+---
+tags:
+  - Matured
+  - Cooking
+  - Improvement
+---
 
-- Jon M. Huntsman
+_Note: I will be using "meals" and "stories" interchangeably throughout this piece._
 
+## Part One:
 
-Raising your voice to be heard over the open windows and 4.0 V6 engine of a 2000 Ford Ranger XLT may bring different results than your typical expectations of spring break. On this particular day, a friend and I set out to explore St. Louis. The backseats were loaded with camera gear since street photography was the objective of the day, for my friend anyway. As for myself, photography was an unfamiliar field, but an extra camera patiently awaited me amongst the rest of the equipment.
+Meals are stories and have a purpose for their creation. The beauty is that, with dishes, you write a different story each time. Meals are a combination of our most valued resources in one place—our time, money, and energy into a single event.
 
-As you enter Maryland Plaza, it's identifiable by the brick-and-mortar buildings lining the street. A place where people sit at cafes on business calls, meanwhile, food service workers haul trash bags to the dumpsters in the alleyways. Attempting to catch these moments during a photo shoot, your results may range from serene to chaotic.  Not to mention when it's your first time doing proper photography, the results tend to be less than desirable. However, you will run into that one moment when you are able to muster in one concentrated effort a culmination of all you know. Take it. 
-
-When your eyes land on that subject, and it looks important to you, take the shot.  Even if you don't know why. Raise the camera body to your cheek.  Examine it through your viewfinder. Keep yourself steady.  Finalize your focus.  Finally,  press the shutter button.
-
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e710887-794b-4094-9f94-d652ff12a661_3925x2617.jpeg)
-
-Congrats, you've done it! You've taken the photo of your dreams! Now what? That's what I asked myself for years after I had shot this photo, as it sat on various phones and laptops. I appreciated all the good it brought back to my memory and I also hoped to share it someday, but I didn't know how. Posting this photo online with a caption would not have the same significance as a cohesive narrative. Besides, let's be honest; its likely that you wouldn't frame this in your home.
-
-
-Even though I love this photo, and am proud that it captured everything I wanted to encapsulate. I don't typically think about the plaza when I look at it. Rather, how we spent the Spring Break comes to mind. 
-
-While there, we sanded and painted his parent's front door while singing Disney songs loud enough for fellow residents to hear. We helped neighbors with furniture as they were moving out. We even picked up his sister after she and her date got his car locked in a parking lot and "lectured" her all the way home about being responsible. This photo doesn't show any of that. This vacation resulted in someone becoming more hardworking, caring, and aware of the others around him. In other words , when I gave selflessly, I received this photo as a result.
-
-That's why I made this Substack. This post is a commitment to doing more good. To more growth in grace and less selfishness. To give gratitude to the people who've helped us, to our experiences, and to good. Something that can be a **_sign_** (sorry, it was right there) of growth for more than just ourselves.
-
-They say a picture’s worth a thousand words, but it costs so much more.
-
-Those who say a picture’s worth a thousand words have never bought one, because it costs a vast amount more.
+It's a shame we treat them as an after thought.
 
 ---
 
-## Photo Info 📷
+Think back to the last time you heard someone fumble through a story. They forget names, times, and places. You respond with head nodding and eye contact, encouraging them along. And when they get to the story's climax, you miss it, and you're told, "Well, you had to be there." when they see that they haven't garnered a desirable reaction from you. This is a conclusion many people, like myself, are not fond of. Unfortunately, we do this exact thing with food. When we serve those who sit at our table, we say, "You had to be there" more often than providing a compelling narrative.
 
-If you enjoy the photo, here's its metadata and relevant information:
+The solution? Well, remember, meals are stories; certain components are necessary to tell a good story. However, before all of it, you need one thing. 
 
-- **Camera** - Canon Rebel T2i
-    
-- **Lens**- Canon EF-S 55-250mm f/4.0-5.6
-    
-- **Photo Settings:** ISO 100 | 84 mm | f/5.0 | 1/200 sec
-    
+A guest. Not to mention a reason for one as well. Going up to anyone with an poorly constructed story will push people away rather than draw them in. So, like any good story, you find its application. Bake them a cake because it's their birthday, not because they have a birthday. Once you find the reason, extend an invitation. 
 
-## Fun Fact 👑
+## What's cookin'?
+Great! Now we have a guest coming to dinner next weekend. What's our next move?  We need to figure out what to cook. This will take some detective work, but people are typically more than willing to tell you their food preferences without a conventional reason. A great way to get started is this question that sparks a huge debate whenever I ask it. "If you had to use only one utensil for every meal you ate, what would it be?" I never thought such a question would result in broken friendships, but you live and learn, especially about your guest's food preferences. Regardless of what utensil they pick, they'll typically defend it with the foods they eat. If you hear a food that catches your attention, it's a great segue into deeper conversation. Another easy question is asking for restaurant suggestions. Asking about what an establishment serves and what they like to eat from there are easy and natural transitions toward conversation regarding their palate. I even find myself asking, " What foods does everyone love that you hate?" and I make sure I have one to share as well. Otherwise, ask them straight up. We need that information somehow.
 
-The name of the state of Maryland was given by King Charles I. to honor his wife. Henrietta Maria. The charter read "_Terra Mariae, anglice, Maryland_".[1](#footnote-1)
+## Prep in your step
+The next and most crucial step is preparation. It comes in many forms, but its importance can't be overstated. You need to know your steps for making this meal and how to do what is required.  The first time you make this meal, will not be the same night your guest is due. Choose a day when you practice that meal and make it for dinner for yourself. Take the morning to research. Look up terms used, how-to videos, and similar recipes. Visualize the process. Once you feel prepared, pick your time for when you want to start cooking. If this is your first time cooking, I suggest starting 2 hours early. It sounds long, but you may take the time to learn how to dice, saute, and wash elements of the meal. There is no shame in this at all.  Plus, you'll discover your timing, so when you cook with others (more on this later), you'll be ready. Once again, our goal is to make a good meal or, in other words, tell a good story. 
 
-For more photo stories:
 
-[Follow Along](https://gaimau.substack.com/subscribe?)
+My food preparation looks like the following:
 
-[1](#footnote-anchor-1)
+The week of the meal, I find the recipe suited for the occasion. I make note of all the ingredients I'm unfamiliar with, and that come from overseas. Then I go online to my grocer's website ( if they don't have one, I'll call) and check if they sell those products. If they don't have a particular ingredient, you have a couple of options.
+1. Check regional markets: If you're expanding your menu, ensure you're prepared to expand your shopping territory. If you live far away from your closest Mexican market, make a day trip out of it, collect what you need for a specific meal, and buy what can be stored for long periods. I suggest this more than a week ahead. 
+2. Make it yourself: This is more for spices and sauces but can also apply to stocks and broth. I would suggest growing vegetables only if you will use them weekly.
+3. Online: It's impressive how many ingredients Amazon sells, and I'm sure there are other options on the online market, depending on what you're looking for. Type it into your search engine and see what you can find! 
+4. Ask around: It seems funny, but people have connections you may not expect. If you know what type of cuisine they cook, ask where they get their ingredients and advice on managing without them. 
 
-Stewart, George R. (1967) _Names on the Land: A Historical Account of Place-Naming in the United States_, 3rd ed.. Houghton Mifflin.
+You may have noticed that I did not suggest substitutions, and that is because I have a rule. 
+
+>**Do not substitute components of meals to make them vegetarian, vegan, or compatible with you.** 
+
+A missing ingredient changes the story of a meal.
+
+This may seem rigid, but there's a reason for this. Different items are not the same. 
+"Shocker!" I know, but listen because what I'm saying holds value.
+
+Chicken and pork are as different to the same degree as jackfruit and pork are. So when you see a pulled pork recipe, don't throw chicken or jackfruit as a substitution for the pork. All you need to do is make something else. In Salt, Fat, Acid, Heat, Samin makes a great point about this and calls it anchoring.^[Nosrat, _Salt, Fat, Acid, Heat_.] Build a meal around an ingredient rather than the other way around. Use this to build your menu and make your meals serve a purpose. We are in the practice of likening alternatives to foods people are familiar with, but you have a unique opportunity to create something new. Give it an original name. Practice it and perfect it. Make it respectable—your own dish with your flavor, flare, and, most importantly, your story. 
+
+Look at what you can eat and ask, "How can I make these ingredients _mine_? "
+
+
+## Are you ready?
+
+When making a meal where I feel out of my depth, I do all my chopping, blending, soaking, and salting the night before. The first time I made Sopa de Verduras con Avocotes, I made sure I had all the ingredients cut and ready to add since the cooking process took nearly an hour by itself.
+
+The last step is to have everything out as well as organized that you are using for that particular meal.
+
+Pots, utensils, spices, ingredients, etc., are nicely organized on the stovetop, counter, and in the fridge in anticipation of my return to the kitchen. It's not a fun time when you forget a specific ingredient for a dish, especially if you went out of your way to buy it in the first place. This takes place the morning of the meal in addition to double-checking and finishing any other food prep. So when you go off to work, the only thing you have left to worry about when you return home is cooking. The point of this is to give yourself time to improve, think about what you're doing and how to improve on it. Make mental notes and analyze the process.
+
+
+Follow this, and your cooking will tell a story instead of telling your dinner guest they should've been there. You can bring them along. Tell them a story they can connect with; this may take time, but it’s well worth the effort.
+
+
