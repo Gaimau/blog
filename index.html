@@ -83,14 +83,16 @@
             </p>
             
 <div class="toc">
-    <a href="article.html?title=Come%20to%20the%20Table%20(Part%201)" data-md="articles/Come to the Table (Part 1).md">Come to the Table (Part 1)</a>
-    <div class="toc-preview"></div>
-    <a href="article.html?title=Because%20or%20by%20cause" data-md="articles/Because or by cause.md">Because or by cause</a>
-    <div class="toc-preview"></div>
-    <a href="article.html?title=Prayer%20and%20Fasting" data-md="articles/Prayer and Fasting.md">Prayer and Fasting</a>
-    <div class="toc-preview"></div>
-    <!-- ...repeat for other articles... -->
-</div>
+    <a href="article.html?title=Come%20to%20the%20Table%20(Part%201)">Come to the Table (Part 1)</a>
+    <a href="article.html?title=Because%20or%20by%20cause">Because or by cause</a>
+    <a href="article.html?title=Prayer%20and%20Fasting">Prayer and Fasting</a>
+    <!--<a href="gallery.html">Gallery</a>-->
+    <a href="projects.html">Projects</a>
+    <a href="notes.html">Notes</a>
+    <!-- <a href="resources.html">Resources</a> -->
+    <a href="about.html">About</a>
+    <!--<a href="contact.html">Contact</a> -->
+    <!-- Add more links as needed -->
 </div>
 <h2>
                 Photography
@@ -99,22 +101,24 @@
             </h2>
           
               <!-- Example for one gallery( if pics are wanted, reinstate code below) -->
-<div class="gallery" data-md="articles/The Izu peninsula (Cherry Blossoms).md">
+<!--<div class="gallery" data-md="articles/The Izu peninsula (Cherry Blossoms).md">
     <div class="image-container">
         <a target="_blank" href="DSC00728.jpg">
             <img src="Images/DSC00728.jpg" height="50">
-        </a>
+        </a>-->
     </div>
     <div class="text-container desc">
         <a href="article.html?title=Izu%20peninsula%20(Cherry%20Blossoms)">Izu peninsula (Cherry Blossoms)</a>
         <div class="subtitle-preview"></div>
+        Always Knowing
         <div class="tags"></div>
     </div>
 </div>
-              <div class="gallery" data-md="articles/The Izu peninsula (Cherry Blossoms).md">
+</div>
+              <!-- <div class="gallery" data-md="articles/The Izu peninsula (Cherry Blossoms).md">
     <div class="image-container">
         <a target="_blank" href="DSC00728.jpg">
-            <img src="Images/DSC00728.jpg" height="50">
+            <img src="Images/DSC00728.jpg" height="50">-->
         </a>
     </div>
     <div class="text-container desc">
@@ -127,27 +131,33 @@
 </div>
         <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 <script>
-document.querySelectorAll('.toc a[data-md]').forEach((link, idx) => {
-    const mdFile = link.getAttribute('data-md');
+document.querySelectorAll('.gallery').forEach(gallery => {
+    const mdFile = gallery.getAttribute('data-md');
     if (mdFile) {
         fetch(mdFile)
-            .then(response => response.ok ? response.text() : '')
+            .then(response => response.text())
             .then(md => {
-                // Remove YAML front matter if present
-                md = md.replace(/^---[\s\S]*?---/, '').trim();
-                // Get the first non-empty line as preview
-                const preview = md.split('\n').find(line => line.trim().length > 0);
-                // Insert preview into the next .toc-preview div
-                const previewDiv = link.nextElementSibling;
-                if (previewDiv && preview) {
-                    previewDiv.textContent = preview;
-                    previewDiv.style.fontStyle = 'italic';
-                    previewDiv.style.color = '#888';
-                    previewDiv.style.marginBottom = '8px';
+                // Extract YAML front matter
+                const yamlMatch = md.match(/^---\n([\s\S]*?)\n---/);
+                let tags = [];
+                if (yamlMatch) {
+                    const yamlContent = yamlMatch[1];
+                    const yamlData = jsyaml.load(yamlContent);
+                    if (yamlData && yamlData.tags) {
+                        tags = yamlData.tags;
+                    }
+                }
+                // Display tags
+                const tagsDiv = gallery.querySelector('.tags');
+                if (tagsDiv && tags.length) {
+                    tagsDiv.innerHTML = tags.map(tag =>
+                        `<a class="tag" href="tags.html?tag=${encodeURIComponent(tag)}">${tag}</a>`
+                    ).join('');
                 }
             });
     }
 });
+
 </script>
         </body>
 </html>
