@@ -54,50 +54,42 @@
         ];
 
         // Get article title from URL
-        const params = new URLSearchParams(window.location.search);
-        const title = params.get('title');
-        const articleDiv = document.getElementById('article');
-        const article = articles.find(a => a.title === title);
+       const params = new URLSearchParams(window.location.search);
+const title = params.get('title');
+const articleDiv = document.getElementById('article');
+const article = articles.find(a => a.title === title);
 
-        if (article && article.mdFile) {
-            fetch(article.mdFile)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.text();
-                })
-                .then(md => {
-                    // Remove YAML front matter
-                    const yamlMatch = md.match(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m);
-                    let tags = [];
-                    if (yamlMatch) {
-                        const yamlContent = yamlMatch[1];
-                        const yamlData = jsyaml.load(yamlContent);
-                        if (yamlData && yamlData.tags) tags = yamlData.tags;
-                        md = md.replace(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m, '').trim();
-                    }
-                    // Convert markdown to HTML
-                    const html = marked.parse(md);
-                    // Insert into DOM
-                    articleDiv.innerHTML = `
-                        <div class="article-content">
-                            ${html}
-                            <div class="tags">
-                                ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                    `;
-                })
-                .catch(err => {
-                    articleDiv.textContent = "Failed to load article.";
-                    console.error("Error loading markdown:", err);
-                });
-        } else if (article && !article.mdFile) {
-            articleDiv.textContent = "This article does not have markdown content.";
-        } else {
-            articleDiv.textContent = "Article not found.";
-        }
+if (article) {
+  fetch(article.mdFile)
+    .then(response => response.text())
+    .then(md => {
+      // Remove YAML front matter
+      const yamlMatch = md.match(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m);
+      let tags = [];
+      if (yamlMatch) {
+        const yamlContent = yamlMatch[1];
+        const yamlData = jsyaml.load(yamlContent);
+        if (yamlData && yamlData.tags) tags = yamlData.tags;
+        md = md.replace(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m, '').trim();
+      }
+      // Convert markdown to HTML
+      const html = marked.parse(md);
+      // Insert into DOM
+      articleDiv.innerHTML = `
+        <div class="article-content">
+          ${html}
+          <div class="tags">
+            ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+      `;
+    })
+    .catch(err => {
+      articleDiv.textContent = "Failed to load article.";
+    });
+} else {
+  articleDiv.textContent = "Article not found.";
+}
 </script>
     </script>
 </body>
