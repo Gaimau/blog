@@ -74,6 +74,8 @@
     <!-- Dropdown Menu End -->
 
     <div id="article"></div>
+    <!-- Load marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- ...existing script... -->
             <h1>
                 I am
@@ -81,6 +83,29 @@
             <p>I am trying my hand at a digital garden. I'll simply share the ideas and activities that I do. Nothing here is the end all be all. I am simply growing.
 
             </p>
+<script>
+// Function to fetch and render a markdown file into #article
+function renderMarkdownArticle(mdPath) {
+    fetch(mdPath)
+        .then(response => {
+            if (!response.ok) throw new Error('Markdown file not found');
+            return response.text();
+        })
+        .then(md => {
+            // Remove YAML front matter if present
+            const mdNoYaml = md.replace(/^---[\s\S]*?---\n/, '');
+            document.getElementById('article').innerHTML = marked.parse(mdNoYaml);
+        })
+        .catch(err => {
+            document.getElementById('article').innerHTML = '<em>Article not found.</em>';
+        });
+}
+
+// Render a default article (alex.md) on page load
+document.addEventListener('DOMContentLoaded', function() {
+    renderMarkdownArticle('articles/alex.md');
+});
+</script>
             
 <div class="toc">
     <a href="article.html?title=Alex">Alex</a>
