@@ -54,87 +54,43 @@
         ];
 
         // Get article title from URL
-        const params = new URLSearchParams(window.location.search);
-        const title = params.get('title');
-        const articleDiv = document.getElementById('article');
-        const article = articles.find(a => a.title === title);
+       const params = new URLSearchParams(window.location.search);
+const title = params.get('title');
+const articleDiv = document.getElementById('article');
+const article = articles.find(a => a.title === title);
 
-       if (article) {
-        document.title = article.title;
-        fetch(article.mdFile)
-            .then(response => response.text())
-           .then(md => {
-    // Extract YAML front matter
-let yamlTags = article.tags;
-const yamlMatch = md.match(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m);
-if (yamlMatch) {
-    const yamlContent = yamlMatch[1];
-    const yamlData = jsyaml.load(yamlContent);
-    if (yamlData && yamlData.tags) {
-        yamlTags = yamlData.tags;
-    }
-    // Remove YAML from markdown
-    md = md.replace(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m, '').trim();
-}
-console.log("Markdown after YAML strip:", md); // Debug
-
-    // Convert markdown to HTML
-    let html = marked.parse(md);
-
-    // Process [[internal links]]
-    html = html.replace(/\[\[([^\]]+)\]\]/g, (match, p1) => {
-        const urlTitle = encodeURIComponent(p1.trim());
-        return `<a href="article.html?title=${urlTitle}">${p1.trim()}</a>`;
-    });
-
-    // After marked.parse(md)
-let footnotes = [];
-let footnoteIndex = 1;
-
-// Replace ^[footnote text] with numbered superscript links
-html = html.replace(/\^\[([^\]]+)\]/g, (match, p1) => {
-    const num = footnoteIndex++;
-    footnotes.push({ num, text: p1 });
-    return `<sup class="footnote"><a href="#footnote-${num}" id="ref-${num}">[${num}]</a></sup>`;
-});
-
-// ...existing internal links replacement...
-
-// At the end, add the footnote section if any footnotes exist
-let footnoteSection = '';
-if (footnotes.length) {
-    footnoteSection = `
-        <hr>
-        <section class="footnotes">
-            <h3>Footnotes</h3>
-            <ol>
-                ${footnotes.map(f => 
-                    `<li id="footnote-${f.num}">${f.text} <a href="#ref-${f.num}">&#8617;</a></li>`
-                ).join('')}
-            </ol>
-        </section>
-    `;
-}
-
-// Insert into page
-articleDiv.innerHTML = `
-    <div class="article-content">
-        <h2>${article.title}</h2>
-        <p><em>${article.subtitle}</em></p>
-        <div class="tags">
-            ${yamlTags.map(tag => `<a class="tag" href="tags.html?tag=${encodeURIComponent(tag)}">${tag}</a>`).join('')}
+if (article) {
+  fetch(article.mdFile)
+    .then(response => response.text())
+    .then(md => {
+      // Remove YAML front matter
+      const yamlMatch = md.match(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m);
+      let tags = [];
+      if (yamlMatch) {
+        const yamlContent = yamlMatch[1];
+        const yamlData = jsyaml.load(yamlContent);
+        if (yamlData && yamlData.tags) tags = yamlData.tags;
+        md = md.replace(/^---[\r\n]+([\s\S]*?)[\r\n]+---[\r\n]*/m, '').trim();
+      }
+      // Convert markdown to HTML
+      const html = marked.parse(md);
+      // Insert into DOM
+      articleDiv.innerHTML = `
+        <div class="article-content">
+          ${html}
+          <div class="tags">
+            ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+          </div>
         </div>
-        <div class="full-content">${html}${footnoteSection}</div>
-    </div>
-`;
-})
-           .catch((error) => {
-    console.log(error); // This will log the error to the browser console
-    articleDiv.innerHTML = "<p>Could not load article content.</p>";
-});
-    } else {
-        articleDiv.innerHTML = "<p>Article not found.</p>";
-    }
+      `;
+    })
+    .catch(err => {
+      articleDiv.textContent = "Failed to load article.";
+    });
+} else {
+  articleDiv.textContent = "Article not found.";
+}
+</script>
     </script>
 </body>
 </html>
